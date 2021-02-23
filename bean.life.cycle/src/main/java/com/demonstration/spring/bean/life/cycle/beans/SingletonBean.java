@@ -22,13 +22,13 @@ public class SingletonBean implements
     private Boolean booleanField;
 
     private SingletonBean(Boolean booleanField) {
-        logger.info("--- Constructor with param : {} ---", booleanField);
+        logger.info("CALL: Constructor with param : {} ", booleanField);
         this.booleanField = booleanField;
         created = true;
     }
 
     public void setStringField(String stringField) {
-        logger.info("--- Setter for StringField : {} ---", stringField);
+        logger.info("CALL: setStringField(String stringField) : {}", stringField);
         this.stringField = stringField;
     }
 
@@ -38,49 +38,49 @@ public class SingletonBean implements
 
     @Override
     public void setBeanName(String name) {
-        logger.info("--- BeanNameAware.setBeanName : {} ---", name);
+        logger.info("CALL: setBeanName(String name) : {}", name);
     }
 
     @Override
     public void setBeanClassLoader(ClassLoader classLoader) {
-        logger.info("--- BeanClassLoaderAware.setBeanClassLoader : {} ---", classLoader.toString());
+        logger.info("CALL: setBeanClassLoader(ClassLoader classLoader) : {}", classLoader.getClass().getSimpleName());
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        logger.info("--- BeanFactoryAware.setBeanFactory : {} ---", beanFactory.toString());
+        logger.info("CALL: setBeanFactory(BeanFactory beanFactory) : {}", beanFactory.toString());
     }
 
     public void initMethod() {
-        logger.info("--- init-method ---");
+        logger.info("CALL: initMethod()");
     }
 
     @PostConstruct
     public void springPostConstruct() {
-        logger.info("--- @PostConstruct ---");
+        logger.info("CALL: springPostConstruct()");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        logger.info("--- InitializingBean.afterPropertiesSet ---");
+        logger.info("CALL: afterPropertiesSet()");
     }
 
     public void destroyMethod() {
-        logger.info("--- destroy-method ---");
+        logger.info("CALL: destroyMethod()");
     }
 
     @PreDestroy
     public void springPreDestroy() {
-        logger.info("--- @PreDestroy ---");
+        logger.info("CALL: springPreDestroy()");
     }
 
     @Override
     public void destroy() throws Exception {
-        logger.info("--- DisposableBean.destroy ---");
+        logger.info("CALL: destroy()");
     }
 
     @Override
     protected void finalize() {
-        logger.info("--- Object finalize ---");
+        logger.info("CALL: finalize()");
     }
 }

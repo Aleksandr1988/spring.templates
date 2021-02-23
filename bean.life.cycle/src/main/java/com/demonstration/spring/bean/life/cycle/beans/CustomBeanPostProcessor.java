@@ -14,14 +14,16 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
-        logger.info("--- BeanPostProcessor.postProcessAfterInitialization : {} ---", beanName);
+        if (beanName.contains("_bean"))
+            logger.info("CALL: postProcessAfterInitialization(Object bean, String beanName) : {}", beanName);
         return bean;
     }
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName)
             throws BeansException {
-        logger.info("--- BeanPostProcessor.postProcessBeforeInitialization : {} ---", beanName);
+        if (beanName.contains("_bean"))
+            logger.info("CALL: postProcessBeforeInitialization(Object bean, String beanName) : {}", beanName);
         return bean;
     }
 }

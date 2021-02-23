@@ -9,16 +9,16 @@ public class PrototypeBean {
     private static boolean created;
 
     public PrototypeBean() {
-        logger.info("--- Constructor ---");
+        logger.info("CALL: Constructor");
         created = true;
     }
 
-    public void destroyMethod() {
-        logger.info("--- destroy-method ---");
+    public void destroyMethod() { // Never use for prototype scope! As it cannot be called :)
+        logger.info("CALL: destroyMethod()");
     }
 
     public void initMethod() {
-        logger.info("--- init-method ---");
+        logger.info("CALL: initMethod()");
     }
 
     public static boolean isCreated() {

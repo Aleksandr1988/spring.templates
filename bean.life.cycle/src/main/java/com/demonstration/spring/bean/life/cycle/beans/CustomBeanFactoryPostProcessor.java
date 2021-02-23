@@ -14,6 +14,6 @@ public class CustomBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
 
     @java.lang.Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        logger.info("--- BeanFactoryPostProcessor.postProcessBeanFactory - RUN");
+        logger.info("CALL: postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)");
     }
 }
